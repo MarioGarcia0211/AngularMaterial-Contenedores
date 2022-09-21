@@ -1,0 +1,33 @@
+<div class="contenedor">
+  <div class="login mat-elevation-z8">
+    <h1 class="titulo">Iniciar Sesión</h1>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input type="email" matInput formControlName="correo" placeholder="" autocomplete="off">
+        <!-- <mat-icon matPrefix>email</mat-icon> -->
+        <mat-error *ngIf="loginForm.controls['correo'].hasError('correo') && !loginForm.controls['correo'].hasError('required') || loginForm.controls['correo'].hasError('pattern')">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          Por favor, introduce una dirección de correo electrónico válida.
+        </mat-error>
+        <mat-error *ngIf="loginForm.controls['correo'].hasError('required')">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          El Correo es <strong>requerido.</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="contrasena" placeholder="" autocomplete="off">
+        <mat-error *ngIf="loginForm.controls['contrasena'].errors && loginForm.controls['contrasena'].touched">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          Se <strong>requiere</strong> una contraseña de al menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <button class="Bsubmit" type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Iniciar Sesión</button>
+    </form>
+
+    <div class="footer-text">¿Eres nuevo usuario? <a routerLink="/sign-up">Regístrate</a></div>
+  </div>
+</div>

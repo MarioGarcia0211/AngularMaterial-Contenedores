@@ -1,0 +1,26 @@
+<mat-nav-list class="sidenav-list">
+  <div class="profile-card">
+    <!-- <img src="assets/user.png" alt=""> -->
+    <div class="header">
+      <h2>Mario</h2>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+  <a mat-list-item [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}" routerLink="/home/inicio" (click)="onToggleClose()">
+      <mat-icon>home</mat-icon>
+      <span>Inicio</span>
+  </a>
+  <a mat-list-item [routerLinkActive]="['active']" routerLink="/home/tabla" (click)="onToggleClose()">
+      <mat-icon>table_chart</mat-icon>
+      <span>Tabla</span>
+  </a>
+  <a mat-list-item [routerLinkActive]="['active']" routerLink="/home/grafica" (click)="onToggleClose()">
+      <mat-icon>analytics</mat-icon>
+      <span>Grafica</span>
+  </a>
+  <a mat-list-item routerLink="/login" (click)="onToggleClose()">
+      <mat-icon>logout</mat-icon>
+      <span>Cerrar Sesion</span>
+  </a>
+
+</mat-nav-list>

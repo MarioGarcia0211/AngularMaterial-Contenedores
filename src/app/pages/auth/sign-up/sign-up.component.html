@@ -1,0 +1,81 @@
+<div class="contenedor">
+  <div class="register">
+    <h1 class="titulo">Registrate</h1>
+    <form [formGroup]="regForm" class="row row-cols-2 row-cols-md-2 g-3" (ngSubmit)="registrar()">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput formControlName="nombre" placeholder="" autocomplete="off">
+          <mat-error *ngIf="regForm.controls['nombre'].errors && regForm.controls['nombre'].touched">
+            <mat-icon class="error-icon" matSuffix>error</mat-icon>
+            El nombre es <strong>requerido.</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="apellido" placeholder="" autocomplete="off">
+        <mat-error *ngIf="regForm.controls['apellido'].errors && regForm.controls['apellido'].touched">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          El Apellido es <strong>requerido.</strong>
+        </mat-error>
+      </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field hintLabel="Maximo 11 digitos" appearance="outline">
+        <mat-label>N° de identificación</mat-label>
+        <input matInput #input maxlength="11" formControlName="identificacion" placeholder="" autocomplete="off">
+        <mat-hint align="end">{{input.value.length || 0}}/11</mat-hint>
+        <!-- <mat-icon matPrefix>email</mat-icon> -->
+        <mat-error *ngIf="regForm.controls['identificacion'].errors && regForm.controls['identificacion'].touched">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          El numero de identificación es <strong>requerido.</strong>
+        </mat-error>
+      </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+        <mat-label>Genéro</mat-label>
+        <mat-select formControlName="genero">
+          <mat-option *ngFor="let item of generos" [value]="item.name">{{item.name}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="regForm.controls['genero'].errors && regForm.controls['genero'].touched">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          El genero es <strong>requerido.</strong>
+        </mat-error>
+      </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Correo</mat-label>
+        <input type="email" matInput formControlName="correo" placeholder="" autocomplete="off">
+        <!-- <mat-icon matPrefix>email</mat-icon> -->
+        <mat-error *ngIf="regForm.controls['correo'].hasError('correo') && !regForm.controls['correo'].hasError('required') || regForm.controls['correo'].hasError('pattern')">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          Por favor, introduce una dirección de correo electrónico válida.
+        </mat-error>
+        <mat-error *ngIf="regForm.controls['correo'].hasError('required')">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          El Correo es <strong>requerido.</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="contrasena" placeholder="" autocomplete="off">
+        <mat-error *ngIf="regForm.controls['contrasena'].errors && regForm.controls['contrasena'].touched">
+          <mat-icon class="error-icon" matSuffix>error</mat-icon>
+          Se <strong>requiere</strong> una contraseña de al menos 6 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <button class="Bsubmit" type="submit" mat-raised-button color="primary" [disabled]="!regForm.valid">Registrarse</button>
+    </form>
+
+    <div class="footer-text text-center">¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></div>
+  </div>
+</div>

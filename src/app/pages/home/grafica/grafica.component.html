@@ -1,0 +1,156 @@
+<mat-toolbar>
+  <h1>Graficas</h1>
+</mat-toolbar>
+
+<div class="texto">
+  La cantidad total de los contenedores es de: {{totalDatos}}
+</div>
+
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4">
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>El mes con mayor cantidad de contenedores</mat-card-title>
+      <mat-card-content>
+        <div class="row row-cols-2" >
+          <div class="col text-center" >
+            <mat-card-subtitle>Mes</mat-card-subtitle>
+            <p>{{contMesMayor}} del {{contMesYearMayor}}</p>
+          </div>
+
+          <div class="col text-center" >
+            <mat-card-subtitle>Total</mat-card-subtitle>
+            <p>{{contMesMayorTotal}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>El mes con menor cantidad de contenedores</mat-card-title>
+      <mat-card-content>
+        <div class="row row-cols-2" >
+          <div class="col text-center" >
+            <mat-card-subtitle>Mes</mat-card-subtitle>
+            <p>{{contMesMenor}} del {{contMesYearMenor}}</p>
+          </div>
+
+          <div class="col text-center" >
+            <mat-card-subtitle>Total</mat-card-subtitle>
+            <p>{{contMesMenorTotal}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>El dia con mayor cantidad de contenedores</mat-card-title>
+      <mat-card-content>
+        <div class="row row-cols-2" >
+          <div class="col text-center" >
+            <mat-card-subtitle>Fecha</mat-card-subtitle>
+            <p>{{contDiaMayor}}/{{contDiaMesMayor}}/{{contDiaYearMayor}}</p>
+          </div>
+
+          <div class="col text-center" >
+            <mat-card-subtitle>Total</mat-card-subtitle>
+            <p>{{contDMaTotal}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>El dia con menor cantidad de contenedores</mat-card-title>
+      <mat-card-content>
+        <div class="row row-cols-2" >
+          <div class="col text-center" >
+            <mat-card-subtitle>Fecha</mat-card-subtitle>
+            <p>{{contDiaMenor}}/{{contDiaMesMenor}}/{{contDiaYearMenor}}</p>
+          </div>
+
+          <div class="col text-center" >
+            <mat-card-subtitle>Total</mat-card-subtitle>
+            <p>{{contDMeTotal}}</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>Total de contenedores por longitud</mat-card-title>
+      <mat-card-content>
+        <canvas id="longitud">{{charts}}</canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>Total de contenedores por año</mat-card-title>
+      <mat-card-content>
+        <canvas id="años">{{charts}}</canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>Total de contenedores por mes (2017)</mat-card-title>
+      <mat-card-content>
+        <canvas id="mes2017">{{charts}}</canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col">
+    <mat-card class="cardDato">
+      <mat-card-title>Total de contenedores por mes (2018)</mat-card-title>
+      <mat-card-content>
+        <canvas id="mes2018">{{charts}}</canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+<div class="lines-charts">
+  <div class="row row-cols-1 row-cols-lg-2 g-4">
+    <div class="col">
+      <mat-card class="cardDato">
+        <mat-card-title>Total de contenedores por mes del año 2017</mat-card-title>
+        <mat-card-content>
+          <canvas id="chart2017">{{charts}}</canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div class="col">
+      <mat-card class="cardDato">
+        <mat-card-title>Total de contenedores por mes del año 2018</mat-card-title>
+        <mat-card-content>
+          <canvas id="chart2018">{{charts}}</canvas>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </div>
+</div>
+
+<div class="bar-charts">
+  <div class="row">
+    <div class="col">
+      <mat-card class="cardDato">
+        <mat-card-title> Total de contenedores por dia</mat-card-title>
+        <canvas id="totaldia">{{charts}}</canvas>
+      </mat-card>
+    </div>
+  </div>
+</div>
